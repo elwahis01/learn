@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: learn
+
+  datasource:
+    url: jdbc:h2:mem:learn-db
+  h2:
+    console:
+      enabled: true
+      
+server:
+  servlet:
+    context-path: /api
+  port: 8980
+    
