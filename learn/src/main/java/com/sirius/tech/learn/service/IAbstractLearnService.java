@@ -9,6 +9,8 @@ import com.sirius.tech.learn.dto.IDTO;
 import com.sirius.tech.learn.entity.IEntity;
 
 public interface IAbstractLearnService<Entity extends IEntity, BasicDTO extends IDTO, FullDTO extends BasicDTO, IEntityDAO extends JpaRepository<Entity, Long>>{
+	
+	
 	public FullDTO create(FullDTO entity) throws Exception;
 	
 	public FullDTO update(FullDTO entity) throws Exception, AccessDeniedException;

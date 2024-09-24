@@ -15,41 +15,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sirius.tech.learn.dto.ArticleBasicDTO;
-import com.sirius.tech.learn.dto.ArticleFullDTO;
-import com.sirius.tech.learn.service.IArticleService;
+import com.sirius.tech.learn.dto.AutorBasicDTO;
+import com.sirius.tech.learn.dto.AutorFullDTO;
+import com.sirius.tech.learn.service.IAuthorService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("articles")
-public class ArticleController {
-
+@RequestMapping("author")
+public class AuthorController {
+	
 	@Autowired
-	private IArticleService articleService;
-
+	private IAuthorService authorService;
+	
 	@PostMapping
-	public ResponseEntity<ArticleFullDTO> create(@RequestBody ArticleFullDTO article) throws Exception {
-		return ResponseEntity.ok(this.articleService.create(article));
+	public ResponseEntity< AutorFullDTO> create(@RequestBody AutorFullDTO autor) throws Exception {
+		return ResponseEntity.ok(this.authorService.create(autor));
 	}
-
+	
 	@PutMapping("/{id}")
-	public ResponseEntity<ArticleFullDTO> update(@RequestBody ArticleFullDTO article) throws Exception {
-		return ResponseEntity.ok(this.articleService.update(article));
+	public ResponseEntity<AutorFullDTO> update(@RequestBody AutorFullDTO autor) throws Exception {
+		return ResponseEntity.ok(this.authorService.update(autor));
 	}
-
+	
 	@GetMapping("/{id}")
-	public ResponseEntity<ArticleFullDTO> getOne(@PathVariable Long id) throws Exception {
-		return ResponseEntity.ok(this.articleService.findById(id));
+	public ResponseEntity<AutorFullDTO> getOne(@PathVariable Long id) throws Exception {
+		return ResponseEntity.ok(this.authorService.findById(id));
 	}
 
 	@GetMapping
-	public ResponseEntity<List<ArticleBasicDTO>> getAll() {
-		return ResponseEntity.ok(articleService.findAll());
+	public ResponseEntity<List<AutorBasicDTO>> getAll() {
+		return ResponseEntity.ok(authorService.findAll());
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws AccessDeniedException, Exception {
-		articleService.deleteById(id);
+		 authorService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
 

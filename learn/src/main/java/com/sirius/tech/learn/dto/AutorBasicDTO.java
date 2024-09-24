@@ -1,38 +1,31 @@
-package com.sirius.tech.learn.entity;
+package com.sirius.tech.learn.dto;
 
-import java.util.List;
+public class AutorBasicDTO  implements IDTO {
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class Author implements IEntity{
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String lastInstitution;
- 
+
 	
-	public Author() {
-	}
-
+	
+	
+	@Override
 	public Long getId() {
-		return id;
+	 
+		return this.id;
 	}
 
+	@Override
 	public void setId(Long id) {
-		this.id = id;
+	  this.id=id;
+		
 	}
 
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -56,7 +49,5 @@ public class Author implements IEntity{
 	public void setLastInstitution(String lastInstitution) {
 		this.lastInstitution = lastInstitution;
 	}
-
-	 
 
 }
